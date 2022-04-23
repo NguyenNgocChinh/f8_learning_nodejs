@@ -12,6 +12,8 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
 
 app.use(morgan("combined"));
+app.use(express.static(path.join(__dirname, "public")));
+console.log("asdadadsad", path.join(__dirname, "public"));
 
 app.get("/", (req, res) => {
   res.render("home/index");
