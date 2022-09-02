@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.js",
-    "watch": "node-sass -w src/resources/scss/ -o src/public/all/css/"
+    "watch": "node-sass -w src/resources/scss/ -o src/public/all/css/ --output-style compressed"
   },
   "repository": {
     "type": "git",

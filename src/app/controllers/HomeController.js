@@ -1,18 +1,15 @@
 const Product = require("../models/Product");
-
+const { multipleMongooseToObject } = require("../../utils/mongoose");
 class HomeController {
   // [GET] // index
-  index(req, res) {
-    // res.render("home/index");
-    Product.find({}, function (err, products) {
-      if (!err) {
-        res.json({
-          products,
+  index(req, res, next) {
+    Product.find({})
+      .then((products) => {
+        res.render("home/index", {
+          products: multipleMongooseToObject(products),
         });
-        return;
-      }
-      res.status(400).json({ error: "ERROR!!!" });
-    });
+      })
+      .catch(next);
   }
 }
 
